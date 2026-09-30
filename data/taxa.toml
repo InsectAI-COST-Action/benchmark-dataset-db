@@ -60,6 +60,8 @@ classes = [
   "Protura",
   "Diplura",
   "Arachnida",
+  "Merostomata",
+  "Pycnogonida",
   "Chilopoda",
   "Diplopoda",
   "Pauropoda",
@@ -67,4 +69,7 @@ classes = [
   "Malacostraca",
   "Branchiopoda",
   "Ostracoda",
+  # An older class, since split up (copepods, barnacles and others), but some
+  # datasets still label by it.
+  "Maxillopoda",
 ]
