@@ -242,6 +242,13 @@ table.models tbody th a:hover { text-decoration: underline; }
   padding: .08rem .35rem; border-radius: 3px;
   white-space: nowrap;
 }
+/* needs_subsetting: a dataset that is mostly not insects. */
+.subset-flag {
+  font-size: .72rem; font-weight: 600; white-space: nowrap;
+  color: var(--accent);
+  border: 1px solid currentColor; border-radius: 3px;
+  padding: .05rem .35rem;
+}
 .scope { font-size: .78rem; text-transform: capitalize; }
 .scope-open, .scope-taxonomic { color: var(--accent); }
 .scope-open { font-weight: 600; }
