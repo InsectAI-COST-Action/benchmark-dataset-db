@@ -68,6 +68,7 @@ classes = [
   "Symphyla",
   "Malacostraca",
   "Branchiopoda",
+  "Copepoda",
   "Ostracoda",
   # An older class, since split up (copepods, barnacles and others), but some
   # datasets still label by it.
