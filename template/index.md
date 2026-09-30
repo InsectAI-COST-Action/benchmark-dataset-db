@@ -48,6 +48,9 @@ taxonomic_scope    = ["Insecta"]                 # the insect ORDERS covered, e.
                                                  # Non-insects by CLASS: ["Insecta", "Arachnida"].
                                                  # Allowed names: data/taxa.toml. Families,
                                                  # genera etc. go in the Contents section.
+# needs_subsetting = true                        # only for datasets that are mostly NOT
+                                                 # insects (e.g. tree-of-life collections):
+                                                 # users must extract the insect part first
 background         = ["simple"]                  # simple | complex. simple = light trap, sticky
                                                  # trap, tray or lab surface; complex = field
                                                  # imagery. List both if it has both.

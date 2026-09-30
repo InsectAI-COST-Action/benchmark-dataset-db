@@ -23,7 +23,7 @@
       {{- $classes := partial "classes.html" . -}}
       {{- $scope := partial "scope.html" . -}}
       {{- /* The expanded names, so searching "Odonata" also finds Insecta datasets. */ -}}
-      {{- $haystack := printf "%s %s %s %s %s %s %s %s" .Title (.Description | default "") $classes (delimit $scope.match " ") ($p.geographic_scope | default "") (delimit ($p.task | default slice) " ") (delimit ($p.contextual_data | default slice) " ") ($p.developer | default "") -}}
+      {{- $haystack := printf "%s %s %s %s %s %s %s %s %s" .Title (.Description | default "") $classes (delimit $scope.match " ") ($p.geographic_scope | default "") (delimit ($p.task | default slice) " ") (delimit ($p.contextual_data | default slice) " ") ($p.developer | default "") (cond (eq $p.needs_subsetting true) "subset needed" "") -}}
       <tr data-id="{{ path.Base .File.Dir }}"
           data-task="{{ delimit ($p.task | default slice) ";" }}"
           data-taxa="{{ delimit $scope.match ";" }}"
@@ -43,7 +43,9 @@
             <span class="muted">—</span>
           {{- end -}}
         </td>
-        <td><strong>{{ $classes }}</strong><br><span class="muted">{{ $scope.label }}</span></td>
+        <td><strong>{{ $classes }}</strong><br><span class="muted">{{ $scope.label }}</span>
+          {{- if $p.needs_subsetting }}<br><span class="subset-flag" title="Most of this dataset is not insects: extract the taxa of interest before use">Subset needed</span>{{ end -}}
+        </td>
         <td>
           {{- range $i, $bg := $p.background -}}
             {{- if $i }}<span class="sep">,</span> {{ end -}}

@@ -8,6 +8,9 @@
     <dt>Tasks</dt><dd class="no-cap">{{ delimit $p.task ", " }}</dd>
     <dt>Classes</dt><dd class="no-cap">{{ partial "classes.html" $page }}</dd>
     <dt>Taxonomic scope</dt><dd class="no-cap">{{ (partial "scope.html" $page).label }}</dd>
+    {{- if $p.needs_subsetting }}
+    <dt>Subsetting</dt><dd class="no-cap"><span class="subset-flag">Subset needed</span>: most of this dataset is not insects</dd>
+    {{- end }}
     <dt>Background</dt><dd>{{ delimit $p.background ", " }}</dd>
     <dt>Geographic scope</dt><dd class="no-cap">{{ $p.geographic_scope }}</dd>
     <dt>Composition</dt><dd>{{ $p.composition }}</dd>

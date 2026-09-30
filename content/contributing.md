@@ -46,6 +46,10 @@ guidelines:
   insect is named by class, e.g. `["Insecta", "Arachnida"]`. The allowed names
   are in `data/taxa.toml`; if yours is missing, add it there first. Families,
   genera and other detail go in the card's Contents section.
+- **`needs_subsetting = true` flags a dataset that is mostly not insects**, such
+  as a tree-of-life collection. The table then marks it "Subset needed". List
+  only the insect and arthropod part in `taxonomic_scope`, and say in the
+  card's Contents section how to extract it and how big it is.
 - **`background` can list both values.** A dataset mixing trap images and field
   photographs writes `background = ["simple", "complex"]`.
 - **`composition` is `aggregated`** if the dataset was assembled from several

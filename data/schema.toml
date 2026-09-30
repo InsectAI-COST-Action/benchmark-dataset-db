@@ -75,6 +75,12 @@ values_from = "taxa"
 help        = "The insect orders the dataset covers, e.g. [\"Coleoptera\", \"Lepidoptera\"]. Write [\"Insecta\"] for insects broadly or when the orders are not known; it matches every insect order, so do not list orders beside it. Non-insects are listed by class, e.g. [\"Insecta\", \"Arachnida\"]. The allowed names are in data/taxa.toml; to add one, add it there. Finer detail (families, genera) goes in the card's Contents section."
 
 [[field]]
+name        = "needs_subsetting"
+type        = "bool"
+required    = false
+help        = "true for a dataset that is mostly NOT insects, such as a tree-of-life collection, where users must extract the insect (or arthropod) part before benchmarking. The table then shows 'Subset needed' under the taxonomic scope. Say in the card's Contents section how to do the subsetting. Default: false. No quotes."
+
+[[field]]
 name        = "background"
 type        = "list"
 required    = true
