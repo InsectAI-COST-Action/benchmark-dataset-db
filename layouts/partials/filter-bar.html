@@ -7,7 +7,6 @@
 {{- $contexts := slice -}}
 {{- $compositions := slice -}}
 {{- $years := slice -}}
-{{- $licenses := slice -}}
 {{- $taxaUsed := slice -}}
 {{- range $rows -}}
   {{- /* One checkbox per name a card lists. A row also carries the names its
@@ -27,7 +26,6 @@
   {{- if not (in $contexts $context) }}{{ $contexts = $contexts | append $context }}{{ end -}}
   {{- with .Params.composition }}{{ if not (in $compositions .) }}{{ $compositions = $compositions | append . }}{{ end }}{{ end -}}
   {{- with .Params.year }}{{ if not (in $years .) }}{{ $years = $years | append . }}{{ end }}{{ end -}}
-  {{- with .Params.license }}{{ if not (in $licenses .) }}{{ $licenses = $licenses | append . }}{{ end }}{{ end -}}
 {{- end -}}
 
 {{- /* Taxa in the vocabulary's order (Insecta, orders, other classes), not
@@ -86,13 +84,6 @@
     <legend>Year</legend>
     {{- range sort $years }}
     <label class="chip"><input type="checkbox" data-facet="year" value="{{ . }}"> {{ . }}</label>
-    {{- end }}
-  </fieldset>
-
-  <fieldset class="filter-group">
-    <legend>License</legend>
-    {{- range sort $licenses }}
-    <label class="chip"><input type="checkbox" data-facet="license" value="{{ . }}"> {{ . }}</label>
     {{- end }}
   </fieldset>
 
