@@ -1,0 +1,48 @@
+{{- /*
+  One dataset's taxonomic scope, ready to show and to filter on. The table, the
+  sidebar and the filter bar all use it, so the Insecta rule lives here once.
+
+  Returns a dict:
+    listed  the names the card lists, in display order
+    label   those names as one line, e.g. "Coleoptera, Lepidoptera", or
+            "Insecta (all orders)"
+    match   every name a filter on this dataset should hit. "Insecta" expands
+            to every insect order, and any insect order adds "Insecta", so
+            ticking Coleoptera finds an Insecta dataset and ticking Insecta finds
+            a Coleoptera one.
+
+  Called as:  {{ $scope := partial "scope.html" . }}   (. = a dataset page)
+*/ -}}
+{{- $taxa := partial "taxa.html" . -}}
+{{- $given := .Params.taxonomic_scope | default slice -}}
+{{- if not (reflect.IsSlice $given) }}{{ $given = slice $given }}{{ end -}}
+
+{{- /* Display order comes from data/taxa.toml, not from the card. */ -}}
+{{- $listed := slice -}}
+{{- range $taxa.all -}}
+  {{- if in $given . }}{{ $listed = $listed | append . }}{{ end -}}
+{{- end -}}
+
+{{- $hasInsecta := in $listed $taxa.insecta -}}
+{{- $hasOrder := false -}}
+{{- range $taxa.orders -}}
+  {{- if in $listed . }}{{ $hasOrder = true }}{{ end -}}
+{{- end -}}
+
+{{- $match := $listed -}}
+{{- if $hasInsecta -}}
+  {{- range $taxa.orders }}{{ $match = $match | append . }}{{ end -}}
+{{- else if $hasOrder -}}
+  {{- $match = $match | append $taxa.insecta -}}
+{{- end -}}
+
+{{- $parts := slice -}}
+{{- range $listed -}}
+  {{- if eq . $taxa.insecta -}}
+    {{- $parts = $parts | append (printf "%s (all orders)" .) -}}
+  {{- else -}}
+    {{- $parts = $parts | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return dict "listed" $listed "label" (delimit $parts ", ") "match" (uniq $match) -}}
