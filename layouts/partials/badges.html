@@ -1,0 +1,16 @@
+{{- $p := .Params -}}
+<ul class="badges">
+  {{- /* `task` is a list, so each task gets its own chip: a dataset can carry
+         boxes and species labels at once. */ -}}
+  {{- range $p.task }}
+  <li class="badge badge-task">{{ . }}</li>
+  {{- end }}
+  <li class="badge badge-taxa">{{ partial "classes.html" . }}</li>
+  {{- range $p.background }}
+  <li class="badge badge-background">{{ . }} background</li>
+  {{- end }}
+  <li class="badge badge-composition">{{ $p.composition }}</li>
+  {{- if $p.has_contextual_data }}
+  <li class="badge badge-context">contextual data</li>
+  {{- end }}
+</ul>

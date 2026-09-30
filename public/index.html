@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.166.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InsectAI Benchmark Datasets</title>
+<meta name="description" content="A registry of insect image datasets for benchmarking detection, classification and segmentation models."><link rel="stylesheet" href="/css/zoo.min.56045c037e9a70bd26835bb8f63d0aa71488b893f2b8b16d769a3fcabe9b2d5f.css" integrity="sha256-VgRcA36acL0mg1u49j0KpxSIuJPyuLFtdpo/yr6bLV8="><script src="/js/zoo-filter.min.81be175d8f1a04e241ae0b49ece4f3c58c63de8075774ff7ad271cf3d87eb72d.js" integrity="sha256-gb4XXY8aBOJBrgtJ7OTzxYxj3oB1d0/3rScc89h&#43;ty0=" defer></script>
+
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+  <a class="brand" href="/">
+    <img class="brand-mark" src="/icon.svg" alt="" aria-hidden="true"
+         width="28" height="28">
+    <span class="brand-name">InsectAI Benchmark Datasets</span>
+  </a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Datasets</a>
+    <a href="/contributing/">Add a dataset</a>
+    <a href="/about/">About</a>
+    <a href="https://github.com/saij19/benchmark-dataset-db" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+  <main id="main">
+    <section class="hero">
+  <h1>InsectAI Benchmark Datasets</h1>
+  <p>A registry of insect image datasets for benchmarking computer vision models.</p>
+<p>Each entry records what the dataset is actually for: the tasks its annotations
+support, the insects it covers, the backgrounds its images were taken against,
+and the limitations its authors documented. Data stays with its authors, this
+catalogue points at it and never redistributes it.</p>
+
+  <ul class="stats">
+  <li><strong>2</strong> datasets</li>
+  <li><strong>3</strong> tasks</li>
+</ul>
+
+</section>
+
+<form class="filter-bar" id="filter-bar" role="search" aria-label="Filter datasets"
+      data-list-facets="task background">
+  <div class="filter-search">
+    <label for="filter-q">Search</label>
+    <input type="search" id="filter-q" name="q" placeholder="pollinator, Carabidae, Denmark…"
+           autocomplete="off">
+  </div>
+
+  <fieldset class="filter-group">
+    <legend>Task</legend>
+    <label class="chip"><input type="checkbox" data-facet="task" value="Classification"> Classification</label>
+    <label class="chip"><input type="checkbox" data-facet="task" value="Detection"> Detection</label>
+    <label class="chip"><input type="checkbox" data-facet="task" value="Segmentation"> Segmentation</label>
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Background</legend>
+    <label class="chip"><input type="checkbox" data-facet="background" value="simple"> simple</label>
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Contextual data</legend>
+    <label class="chip"><input type="checkbox" data-facet="context" value="images-only"> images only</label>
+    <label class="chip"><input type="checkbox" data-facet="context" value="included"> included</label>
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Composition</legend>
+    <label class="chip"><input type="checkbox" data-facet="composition" value="aggregated"> aggregated</label>
+    <label class="chip"><input type="checkbox" data-facet="composition" value="self-contained"> self-contained</label>
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Year</legend>
+    <label class="chip"><input type="checkbox" data-facet="year" value="2023"> 2023</label>
+    <label class="chip"><input type="checkbox" data-facet="year" value="2025"> 2025</label>
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>License</legend>
+    <label class="chip"><input type="checkbox" data-facet="license" value="CC-BY-3.0"> CC-BY-3.0</label>
+    <label class="chip"><input type="checkbox" data-facet="license" value="CC-BY-4.0"> CC-BY-4.0</label>
+  </fieldset>
+
+  <button type="reset" class="filter-reset" id="filter-reset">Clear filters</button>
+</form>
+
+
+<p class="result-count" id="result-count" aria-live="polite"></p>
+  <div class="table-scroll" tabindex="0" role="region"
+     aria-label="Dataset table - scroll horizontally for more columns">
+  <table class="models">
+    <caption class="sr-only">Insect datasets</caption>
+    <thead>
+      <tr>
+        <th scope="col">Dataset</th>
+        <th scope="col">Task</th>
+        <th scope="col">Taxonomic scope</th>
+        <th scope="col">Background</th>
+        <th scope="col">Geographic scope</th>
+        <th scope="col">Contextual data</th>
+        <th scope="col">Year</th>
+        <th scope="col">License</th>
+      </tr>
+    </thead>
+    <tbody><tr data-id="bioscan-1m"
+          data-task="Classification"
+          data-background="simple"
+          data-context="included"
+          data-composition="self-contained"
+          data-year="2023"
+          data-license="CC-BY-3.0"
+          data-search="bioscan-1m about 1.1 million microscope images of single insect specimens, labelled by experts at several taxonomic ranks, each with its dna barcode. 16 orders insecta; every image to order, 98.6% to family (491), 22.5% to genus (3,441), 7.5% to species (8,355). long-tailed, diptera-dominated 3 countries: costa rica, canada, south africa (mostly costa rica) classification genetic zahra gharaee, zeming gong et al.">
+        <th scope="row">
+          <a href="/datasets/bioscan-1m/">BIOSCAN-1M</a>
+        </th>
+        <td><span class="task">Classification</span></td>
+        <td><strong>16 orders</strong><br><span class="muted">Insecta; every image to order, 98.6% to family (491), 22.5% to genus (3,441), 7.5% to species (8,355). Long-tailed, Diptera-dominated</span></td>
+        <td><span class="scope">simple</span></td>
+        <td>3 countries: Costa Rica, Canada, South Africa (mostly Costa Rica)</td>
+        <td>Included</td>
+        <td>2023</td>
+        <td><span class="lic">CC-BY-3.0</span></td>
+      </tr><tr data-id="flatbug-dataset"
+          data-task="Detection;Segmentation"
+          data-background="simple"
+          data-context="images-only"
+          data-composition="aggregated"
+          data-year="2025"
+          data-license="CC-BY-4.0"
+          data-search="flatbug-dataset 6,028 images of terrestrial arthropods on flat surfaces, compiled from 23 published datasets and annotated with coco instance polygons. 1 generic class terrestrial arthropods, single generic class (no taxonomic labels) multi-region; depends on each source dataset detection segmentation  quentin geissmann, asger svenning">
+        <th scope="row">
+          <a href="/datasets/flatbug-dataset/">flatbug-dataset</a>
+        </th>
+        <td><span class="task">Detection</span><span class="sep">,</span> <span class="task">Segmentation</span></td>
+        <td><strong>1 generic class</strong><br><span class="muted">Terrestrial arthropods, single generic class (no taxonomic labels)</span></td>
+        <td><span class="scope">simple</span></td>
+        <td>Multi-region; depends on each source dataset</td>
+        <td><span class="muted">Images only</span></td>
+        <td>2025</td>
+        <td><span class="lic">CC-BY-4.0</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+  </main>
+  <footer class="site-footer">
+  <p>
+    InsectAI Benchmark Datasets is a registry of insect image datasets for benchmarking
+    detection, classification and segmentation models.
+  </p>
+  
+  <p class="muted">
+    Catalogue text licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC-BY-4.0</a>.
+    Each dataset keeps its own license, see the individual dataset card.
+  </p>
+  
+</footer>
+
+</body>
+</html>

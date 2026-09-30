@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{- /* Everything this page shows is front matter on this page. */ -}}
+{{- partial "validate.html" . -}}
+{{- $p := .Params -}}
+
+<article class="model">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="{{ site.Home.RelPermalink }}">Datasets</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ .Title }}</span>
+  </nav>
+
+  <header class="model-head">
+    <h1>{{ .Title }}</h1>
+    <p class="lede">{{ .Description }}</p>
+    {{ partial "badges.html" . }}
+  </header>
+
+  <div class="model-cols">
+    <aside class="sidebar">
+      {{ partial "metadata-sidebar.html" (dict "page" .) }}
+    </aside>
+    <div class="card-body">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
+
+{{ end }}

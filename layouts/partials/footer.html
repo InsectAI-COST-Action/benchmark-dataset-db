@@ -1,0 +1,12 @@
+<footer class="site-footer">
+  <p>
+    {{ site.Title }} is a registry of insect image datasets for benchmarking
+    detection, classification and segmentation models.
+  </p>
+  {{ with site.Params.licenseURL }}
+  <p class="muted">
+    Catalogue text licensed <a href="{{ . }}" rel="noopener">{{ site.Params.license }}</a>.
+    Each dataset keeps its own license, see the individual dataset card.
+  </p>
+  {{ end }}
+</footer>

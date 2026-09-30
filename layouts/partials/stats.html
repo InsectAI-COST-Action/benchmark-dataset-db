@@ -1,0 +1,16 @@
+{{- $rows := . -}}
+
+{{- /* Distinct values via a dict keyed by value: Hugo has no uniq helper. A
+       dataset counts under every task it supports, so this is the number of
+       tasks in use, not the number the schema allows. */ -}}
+{{- $tasks := dict -}}
+{{- range $rows -}}
+  {{- range .Params.task -}}
+    {{- $tasks = merge $tasks (dict . true) -}}
+  {{- end -}}
+{{- end -}}
+
+<ul class="stats">
+  <li><strong>{{ len $rows }}</strong> dataset{{ if ne (len $rows) 1 }}s{{ end }}</li>
+  <li><strong>{{ len $tasks }}</strong> task{{ if ne (len $tasks) 1 }}s{{ end }}</li>
+</ul>

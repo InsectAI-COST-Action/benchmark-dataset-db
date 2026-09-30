@@ -1,0 +1,22 @@
+{{- /*
+  The class count and rank as one phrase: "1000 genera", "12 species",
+  "1 generic class". The table, the badges and the sidebar all show it, so the
+  plurals live here once.
+  Called as:  {{ partial "classes.html" . }}   (. = a dataset page)
+*/ -}}
+{{- $n := .Params.class_count -}}
+{{- $rank := .Params.taxonomic_rank -}}
+{{- $one := eq $n 1 -}}
+{{- $words := dict
+      "species" (slice "species" "species")
+      "genus"   (slice "genus" "genera")
+      "family"  (slice "family" "families")
+      "order"   (slice "order" "orders")
+      "mixed"   (slice "taxon, mixed ranks" "taxa, mixed ranks") -}}
+{{- $label := "" -}}
+{{- if eq $rank "generic" -}}
+  {{- $label = cond $one "generic class" "generic classes" -}}
+{{- else -}}
+  {{- with index $words $rank -}}{{- $label = index . (cond $one 0 1) -}}{{- end -}}
+{{- end -}}
+{{- return printf "%d %s" $n $label -}}

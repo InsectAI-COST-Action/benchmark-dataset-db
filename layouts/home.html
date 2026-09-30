@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{- /* Every dataset is an ordinary page, so the registry is just a query. */ -}}
+{{- $datasets := where site.RegularPages "Section" "datasets" -}}
+{{- $published := sort (where $datasets "Params.status" "published") "Title" -}}
+
+<section class="hero">
+  <h1>{{ site.Title }}</h1>
+  {{ .Content }}
+  {{ partial "stats.html" $published }}
+</section>
+
+{{ partial "filter-bar.html" $published }}
+
+<p class="result-count" id="result-count" aria-live="polite"></p>
+
+{{- /* One table, each dataset once. The Task column and the Task filter do the
+       job that per-task sections would, without listing a dataset twice. */ -}}
+{{- with $published }}
+  {{ partial "dataset-table.html" . }}
+{{- else }}
+  <p class="muted">No datasets are published yet.</p>
+{{- end }}
+
+{{ end }}

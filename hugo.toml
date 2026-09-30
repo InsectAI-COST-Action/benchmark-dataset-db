@@ -1,0 +1,35 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+#  Insect AI Benchmark Datasets - Hugo configuration
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+#  Every dataset is an ordinary page under content/datasets/, so Hugo's defaults are all this site needs.
+
+baseURL         = "https://saij19.github.io/benchmark-dataset-db/"
+locale          = "en-us"
+title           = "InsectAI Benchmark Datasets"
+enableRobotsTXT = true
+
+# The category taxonomy is defined by us and lives in data/categories.toml.
+disableKinds = ["taxonomy", "term", "rss", "sitemap"]
+
+# Keeps data files that a contributor dropped into a dataset folder during local
+# work out of the built site. The same list is in .gitignore, which is what stops
+# them being committed.
+ignoreFiles = [
+  '\.(zip|tar|gz|tgz|7z|rar|h5|hdf5|parquet|npy|npz|csv|jpg|jpeg|png|tif|tiff)$',
+]
+
+[params]
+  description = "A registry of insect image datasets for benchmarking detection, classification and segmentation models."
+  repoURL     = "https://github.com/saij19/benchmark-dataset-db"
+  license     = "CC-BY-4.0"
+  licenseURL  = "https://creativecommons.org/licenses/by/4.0/"
+
+[markup]
+  [markup.goldmark.renderer]
+    # Cards are Markdown written by contributors and reviewed in a pull request.
+    # They use tables, and occasionally a raw <kbd> or <abbr>.
+    unsafe = true
+  [markup.highlight]
+    style = "github"
+    noClasses = false

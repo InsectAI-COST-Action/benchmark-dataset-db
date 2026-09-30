@@ -1,0 +1,79 @@
+{{- $rows := . -}}
+
+{{- /* Built at build time, so the facet list is correct with JavaScript disabled
+       and a task added to any card gets its own checkbox with no edit here. */ -}}
+{{- $tasks := slice -}}
+{{- $backgrounds := slice -}}
+{{- $contexts := slice -}}
+{{- $compositions := slice -}}
+{{- $years := slice -}}
+{{- $licenses := slice -}}
+{{- range $rows -}}
+  {{- /* One checkbox per member, not one per whole task list. */ -}}
+  {{- range .Params.task -}}
+    {{- if not (in $tasks .) }}{{ $tasks = $tasks | append . }}{{ end -}}
+  {{- end -}}
+  {{- range .Params.background -}}
+    {{- if not (in $backgrounds .) }}{{ $backgrounds = $backgrounds | append . }}{{ end -}}
+  {{- end -}}
+  {{- $context := cond (eq .Params.has_contextual_data true) "included" "images-only" -}}
+  {{- if not (in $contexts $context) }}{{ $contexts = $contexts | append $context }}{{ end -}}
+  {{- with .Params.composition }}{{ if not (in $compositions .) }}{{ $compositions = $compositions | append . }}{{ end }}{{ end -}}
+  {{- with .Params.year }}{{ if not (in $years .) }}{{ $years = $years | append . }}{{ end }}{{ end -}}
+  {{- with .Params.license }}{{ if not (in $licenses .) }}{{ $licenses = $licenses | append . }}{{ end }}{{ end -}}
+{{- end -}}
+
+{{- /* Facets whose row attribute is a `;`-separated list. Declared here rather
+       than restated in the JavaScript. */ -}}
+<form class="filter-bar" id="filter-bar" role="search" aria-label="Filter datasets"
+      data-list-facets="task background">
+  <div class="filter-search">
+    <label for="filter-q">Search</label>
+    <input type="search" id="filter-q" name="q" placeholder="pollinator, Carabidae, Denmark…"
+           autocomplete="off">
+  </div>
+
+  <fieldset class="filter-group">
+    <legend>Task</legend>
+    {{- range sort $tasks }}
+    <label class="chip"><input type="checkbox" data-facet="task" value="{{ . }}"> {{ . }}</label>
+    {{- end }}
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Background</legend>
+    {{- range sort $backgrounds }}
+    <label class="chip"><input type="checkbox" data-facet="background" value="{{ . }}"> {{ . }}</label>
+    {{- end }}
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Contextual data</legend>
+    {{- range sort $contexts }}
+    <label class="chip"><input type="checkbox" data-facet="context" value="{{ . }}"> {{ if eq . "included" }}included{{ else }}images only{{ end }}</label>
+    {{- end }}
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Composition</legend>
+    {{- range sort $compositions }}
+    <label class="chip"><input type="checkbox" data-facet="composition" value="{{ . }}"> {{ . }}</label>
+    {{- end }}
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Year</legend>
+    {{- range sort $years }}
+    <label class="chip"><input type="checkbox" data-facet="year" value="{{ . }}"> {{ . }}</label>
+    {{- end }}
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>License</legend>
+    {{- range sort $licenses }}
+    <label class="chip"><input type="checkbox" data-facet="license" value="{{ . }}"> {{ . }}</label>
+    {{- end }}
+  </fieldset>
+
+  <button type="reset" class="filter-reset" id="filter-reset">Clear filters</button>
+</form>

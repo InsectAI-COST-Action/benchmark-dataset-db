@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>flatbug-dataset · InsectAI Benchmark Datasets</title>
+<meta name="description" content="6,028 images of terrestrial arthropods on flat surfaces, compiled from 23 published datasets and annotated with COCO instance polygons."><link rel="stylesheet" href="/css/zoo.min.56045c037e9a70bd26835bb8f63d0aa71488b893f2b8b16d769a3fcabe9b2d5f.css" integrity="sha256-VgRcA36acL0mg1u49j0KpxSIuJPyuLFtdpo/yr6bLV8="><script src="/js/zoo-filter.min.81be175d8f1a04e241ae0b49ece4f3c58c63de8075774ff7ad271cf3d87eb72d.js" integrity="sha256-gb4XXY8aBOJBrgtJ7OTzxYxj3oB1d0/3rScc89h&#43;ty0=" defer></script>
+
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+  <a class="brand" href="/">
+    <img class="brand-mark" src="/icon.svg" alt="" aria-hidden="true"
+         width="28" height="28">
+    <span class="brand-name">InsectAI Benchmark Datasets</span>
+  </a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Datasets</a>
+    <a href="/contributing/">Add a dataset</a>
+    <a href="/about/">About</a>
+    <a href="https://github.com/saij19/benchmark-dataset-db" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+  <main id="main">
+    <article class="model">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/">Datasets</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">flatbug-dataset</span>
+  </nav>
+
+  <header class="model-head">
+    <h1>flatbug-dataset</h1>
+    <p class="lede">6,028 images of terrestrial arthropods on flat surfaces, compiled from 23 published datasets and annotated with COCO instance polygons.</p>
+    <ul class="badges">
+  <li class="badge badge-task">Detection</li>
+  <li class="badge badge-task">Segmentation</li>
+  <li class="badge badge-taxa">1 generic class</li>
+  <li class="badge badge-background">simple background</li>
+  <li class="badge badge-composition">aggregated</li>
+</ul>
+
+  </header>
+
+  <div class="model-cols">
+    <aside class="sidebar">
+      <div class="meta-block">
+  <h2 class="meta-title">At a glance</h2>
+  <dl class="meta-list">
+    <dt>Tasks</dt><dd class="no-cap">Detection, Segmentation</dd>
+    <dt>Classes</dt><dd class="no-cap">1 generic class</dd>
+    <dt>Taxonomic scope</dt><dd class="no-cap">Terrestrial arthropods, single generic class (no taxonomic labels)</dd>
+    <dt>Background</dt><dd>simple</dd>
+    <dt>Geographic scope</dt><dd class="no-cap">Multi-region; depends on each source dataset</dd>
+    <dt>Composition</dt><dd>aggregated</dd>
+    <dt>Year</dt><dd>2025</dd>
+    <dt>Added</dt><dd>2026-09-30</dd>
+  </dl>
+</div>
+
+<div class="meta-block">
+  <h2 class="meta-title">Contextual data</h2>
+  <p class="muted">Images and labels only.</p>
+</div>
+
+<div class="meta-block">
+  <h2 class="meta-title">License and rights</h2>
+  <dl class="meta-list">
+    <dt>License</dt><dd class="no-cap">CC-BY-4.0</dd>
+    <dt>Host</dt><dd class="no-cap">zenodo</dd>
+    <dt>DOI</dt><dd class="no-cap"><a href="https://doi.org/10.5281/zenodo.14761447" rel="noopener">10.5281/zenodo.14761447</a></dd>
+    <dt>Hosting</dt><dd>link only</dd>
+    <dt>Commercial use</dt><dd>allowed</dd>
+  </dl>
+</div>
+<div class="meta-block">
+  <h2 class="meta-title">
+    2 downloads
+  </h2>
+  <ul class="assets">
+      <li>
+        <a href="https://zenodo.org/records/14761447" rel="nofollow noopener">zenodo-record</a><span class="asset-meta">2025-01-29</span>
+      </li>
+      <li>
+        <a href="https://zenodo.org/records/14761447/files/flatbug-dataset.zip?download=1" rel="nofollow noopener">images-and-annotations</a><span class="asset-file">flatbug-dataset.zip</span>
+          <span class="asset-meta">6901.9 MB</span><span class="asset-meta">2025-01-29</span>
+      </li>
+  </ul>
+</div>
+<div class="meta-block">
+  <h2 class="meta-title">Provenance</h2>
+  <dl class="meta-list">
+    <dt>Developer</dt><dd class="no-cap">Quentin Geissmann, Asger Svenning</dd>
+    <dt>Paper</dt><dd><a href="https://doi.org/10.1111/2041-210x.70249" rel="noopener">link</a></dd>
+  </dl>
+</div>
+
+    </aside>
+    <div class="card-body">
+      <blockquote>
+<p>6,028 images of terrestrial arthropods on flat surfaces, compiled from 23 published datasets and annotated with COCO instance polygons.</p>
+</blockquote>
+<p><strong>Intended use.</strong> Benchmarking models that detect and outline arthropods on
+flat, uniform surfaces: sticky cards, pitfall- and light-trap imagery, scanners
+and lab trays. It was assembled to train <a href="https://doi.org/10.1111/2041-210x.70249">flatbug</a>,
+a generalist instance segmentation model, and covers many image sizes and
+crowded scenes. It does not identify taxa: every instance is one class.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><strong>Images:</strong> 6,028</li>
+<li><strong>Annotations:</strong> instance polygons in COCO format, one <code>.json</code> per source dataset</li>
+<li><strong>Classes:</strong> one generic class, arthropod; no taxonomic labels</li>
+<li><strong>Tasks:</strong> detection and instance segmentation</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<p>A compilation of 23 independently published datasets, each stored in its own
+subdirectory and each with its own DOI, listed in the archive&rsquo;s <code>metadata.csv</code>
+and on the Zenodo record. They include ArTaxOr (1,050 images), PeMaToEuroPep
+(729), amarathunga2022 (550), DiversityScanner (529), BIOSCAN (501), sticky-pi
+(400), AMI-traps (153) and sittinger2023 (76).</p>
+<h2 id="contextual-data">Contextual data</h2>
+<p>None at compilation level. Each source dataset has its own DOI and metadata;
+see its record for what it provides.</p>
+<h2 id="collection">Collection</h2>
+<p>The images come from the 23 source datasets, so capture setups, cameras and
+resolutions vary. All are on simple, uniform backgrounds: sticky cards, pitfall
+and light traps, scanners, platforms and lab trays.</p>
+<h2 id="splits-and-benchmarks">Splits and benchmarks</h2>
+<p>Not stated at dataset level. The flatbug paper describes how the data were used
+to train and evaluate the model; check it before comparing results.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li><strong>No taxonomic labels.</strong> Usable for finding and outlining arthropods, not for
+identifying them.</li>
+<li><strong>Simple backgrounds only.</strong> No field imagery against vegetation or soil.</li>
+<li><strong>Uneven source sizes.</strong> Sources range from 12 to 1,050 images, so a few
+datasets dominate.</li>
+<li><strong>Geography depends on the sources.</strong> Regions vary between source datasets
+and are not recorded at compilation level.</li>
+</ul>
+<h2 id="how-to-obtain-the-data">How to obtain the data</h2>
+<p>From Zenodo, as one 6.9 GB zip, no registration required. The DOI above is this
+version of the record; 10.5281/zenodo.14761446 always resolves to the latest.
+Zenodo publishes an MD5 checksum for the file,
+<code>c10b7438f93eae8ba855babfa6bae751</code>, to check the download:
+<code>md5 flatbug-dataset.zip</code> on macOS, <code>md5sum flatbug-dataset.zip</code> on Linux.</p>
+<p>CC BY 4.0 permits commercial use with attribution. Cite the dataset and the
+paper below, and consider citing the source datasets you use.</p>
+<h2 id="citation">Citation</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bibtex" data-lang="bibtex"><span class="line"><span class="cl"><span class="nc">@dataset</span><span class="p">{</span><span class="nl">geissmann2025flatbugdataset</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">author</span>    <span class="p">=</span> <span class="s">{Geissmann, Quentin and Svenning, Asger}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">title</span>     <span class="p">=</span> <span class="s">{flatbug-dataset a compilation of dataset of terrestrial arthropodes on various surfaces}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">year</span>      <span class="p">=</span> <span class="s">{2025}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">publisher</span> <span class="p">=</span> <span class="s">{Zenodo}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">doi</span>       <span class="p">=</span> <span class="s">{10.5281/zenodo.14761447}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nc">@article</span><span class="p">{</span><span class="nl">svenning2026flatbug</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">title</span>   <span class="p">=</span> <span class="s">{A general method for detection and segmentation of terrestrial arthropods in images}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">author</span>  <span class="p">=</span> <span class="s">{Svenning, Asger and Mougeot, Guillaume and Alison, Jamie and Chevalier, Daphne
+</span></span></span><span class="line"><span class="cl"><span class="s">             and Molina, Nisa Chavez and Ong, Song-Quan and Bjerge, Kim and Carrillo, Juli
+</span></span></span><span class="line"><span class="cl"><span class="s">             and H{\o}ye, Toke Thomas and Geissmann, Quentin}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">journal</span> <span class="p">=</span> <span class="s">{Methods in Ecology and Evolution}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">volume</span>  <span class="p">=</span> <span class="s">{17}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">number</span>  <span class="p">=</span> <span class="s">{3}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">pages</span>   <span class="p">=</span> <span class="s">{727--739}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">year</span>    <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="na">doi</span>     <span class="p">=</span> <span class="s">{10.1111/2041-210x.70249}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+    </div>
+  </div>
+</article>
+
+
+  </main>
+  <footer class="site-footer">
+  <p>
+    InsectAI Benchmark Datasets is a registry of insect image datasets for benchmarking
+    detection, classification and segmentation models.
+  </p>
+  
+  <p class="muted">
+    Catalogue text licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC-BY-4.0</a>.
+    Each dataset keeps its own license, see the individual dataset card.
+  </p>
+  
+</footer>
+
+</body>
+</html>
