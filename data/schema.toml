@@ -49,7 +49,7 @@ values      = [
 help        = "The computer vision tasks the annotations support. A list of one or more tasks. To add a task that is not listed, add it to `values` for this field in data/schema.toml."
 
 # What the dataset covers. The table shows the class count and rank together,
-# e.g. "1000 genera", with the taxonomic scope beneath it.
+# e.g. "1000 genera", with the taxonomic scope (the orders or classes) beneath it.
 
 [[field]]
 name        = "taxonomic_rank"
@@ -64,11 +64,15 @@ type        = "int"
 required    = true
 help        = "How many distinct classes the labels hold, e.g. 1000 for a dataset of 1000 genera. 1 for a detection dataset whose only class is 'insect'."
 
+# The allowed names live in data/taxa.toml rather than in `values` here, because
+# the site also needs to know which of them are insect orders.
+
 [[field]]
 name        = "taxonomic_scope"
-type        = "string"
+type        = "list"
 required    = true
-help        = "Which insects, as specifically as you can: e.g. 'Coleoptera: Carabidae', 'Bumblebees (Bombus) of Northern Europe', 'Insecta, 150 families'. Name the group, not just 'insects'."
+values_from = "taxa"
+help        = "The insect orders the dataset covers, e.g. [\"Coleoptera\", \"Lepidoptera\"]. Write [\"Insecta\"] for insects broadly or when the orders are not known; it matches every insect order, so do not list orders beside it. Non-insects are listed by class, e.g. [\"Insecta\", \"Arachnida\"]. The allowed names are in data/taxa.toml; to add one, add it there. Finer detail (families, genera) goes in the card's Contents section."
 
 [[field]]
 name        = "background"
