@@ -5,7 +5,7 @@ and segmentation models. Data stays with its authors, this catalogue points at i
 and never redistributes it.
 
 The site, its schema rules and its contribution workflow follow the
-[InsectAI Model Zoo](https://github.com/InsectAI-COST-Action/model-db), and reuse
+[InsectAI Model Database](https://github.com/InsectAI-COST-Action/model-db), and reuse
 its site code.
 
 ## Dataset metadata is stored as an .md file
