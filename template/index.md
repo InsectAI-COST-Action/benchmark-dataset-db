@@ -33,15 +33,21 @@ task               = ["Detection"]               # Detection | Classification | 
                                                  # A task not listed here? Add it to the
                                                  # task values in data/schema.toml first.
 
-# What the dataset covers. Be as specific as you can: the table shows these as
-# e.g. "1000 genera" above the taxonomic scope.
+# What the dataset covers. The table shows these as e.g. "1000 genera" above
+# the taxonomic scope.
 taxonomic_rank     = "species"                   # species | genus | family | order | mixed |
                                                  # generic (one untaxonomic class such as
                                                  # "insect", as in a detector that finds
                                                  # insects without naming them)
 class_count        = 1                           # how many distinct classes, no quotes
-taxonomic_scope    = "REPLACE"                   # which insects, e.g. "Coleoptera: Carabidae"
-                                                 # or "Bumblebees (Bombus)". Not just "insects".
+taxonomic_scope    = ["Insecta"]                 # the insect ORDERS covered, e.g.
+                                                 # ["Coleoptera", "Lepidoptera"].
+                                                 # ["Insecta"] = insects broadly, or orders
+                                                 # unknown; it matches every order, so do
+                                                 # not list orders beside it.
+                                                 # Non-insects by CLASS: ["Insecta", "Arachnida"].
+                                                 # Allowed names: data/taxa.toml. Families,
+                                                 # genera etc. go in the Contents section.
 background         = ["simple"]                  # simple | complex. simple = light trap, sticky
                                                  # trap, tray or lab surface; complex = field
                                                  # imagery. List both if it has both.
