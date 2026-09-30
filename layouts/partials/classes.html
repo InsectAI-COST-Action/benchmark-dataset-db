@@ -19,4 +19,5 @@
 {{- else -}}
   {{- with index $words $rank -}}{{- $label = index . (cond $one 0 1) -}}{{- end -}}
 {{- end -}}
-{{- return printf "%d %s" $n $label -}}
+{{- /* Thousands separators, so 34212 reads as 34,212. */ -}}
+{{- return printf "%s %s" (lang.FormatNumberCustom 0 $n) $label -}}
