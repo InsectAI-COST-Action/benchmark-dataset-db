@@ -8,7 +8,14 @@
 {{- $compositions := slice -}}
 {{- $years := slice -}}
 {{- $licenses := slice -}}
+{{- $taxaUsed := slice -}}
 {{- range $rows -}}
+  {{- /* One checkbox per name a card lists. A row also carries the names its
+         scope implies (see scope.html), so ticking an order still finds the
+         datasets that list "Insecta". */ -}}
+  {{- range (partial "scope.html" .).listed -}}
+    {{- if not (in $taxaUsed .) }}{{ $taxaUsed = $taxaUsed | append . }}{{ end -}}
+  {{- end -}}
   {{- /* One checkbox per member, not one per whole task list. */ -}}
   {{- range .Params.task -}}
     {{- if not (in $tasks .) }}{{ $tasks = $tasks | append . }}{{ end -}}
@@ -23,10 +30,17 @@
   {{- with .Params.license }}{{ if not (in $licenses .) }}{{ $licenses = $licenses | append . }}{{ end }}{{ end -}}
 {{- end -}}
 
+{{- /* Taxa in the vocabulary's order (Insecta, orders, other classes), not
+       alphabetically, so the insect orders sit together. */ -}}
+{{- $taxa := slice -}}
+{{- range (partial "taxa.html" .).all -}}
+  {{- if in $taxaUsed . }}{{ $taxa = $taxa | append . }}{{ end -}}
+{{- end -}}
+
 {{- /* Facets whose row attribute is a `;`-separated list. Declared here rather
        than restated in the JavaScript. */ -}}
 <form class="filter-bar" id="filter-bar" role="search" aria-label="Filter datasets"
-      data-list-facets="task background">
+      data-list-facets="task taxa background">
   <div class="filter-search">
     <label for="filter-q">Search</label>
     <input type="search" id="filter-q" name="q" placeholder="pollinator, Carabidae, Denmark…"
@@ -37,6 +51,13 @@
     <legend>Task</legend>
     {{- range sort $tasks }}
     <label class="chip"><input type="checkbox" data-facet="task" value="{{ . }}"> {{ . }}</label>
+    {{- end }}
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Taxa</legend>
+    {{- range $taxa }}
+    <label class="chip"><input type="checkbox" data-facet="taxa" value="{{ . }}"> {{ . }}</label>
     {{- end }}
   </fieldset>
 

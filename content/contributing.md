@@ -37,8 +37,15 @@ guidelines:
 - **Be specific about the taxa.** `taxonomic_rank` and `class_count` together
   say what the labels are, e.g. `"genus"` and `1000` for a dataset of 1000
   genera. A detector that finds insects without naming them uses `"generic"` and
-  `1`. `taxonomic_scope` then names the group: "Coleoptera: Carabidae", not
-  "insects".
+  `1`.
+- **`taxonomic_scope` lists insect orders, and other groups by class.** A
+  dataset of beetles and moths writes `["Coleoptera", "Lepidoptera"]`. Use
+  `["Insecta"]` when it covers insects broadly or its orders are not known:
+  it counts as every insect order, so someone filtering for Odonata still finds
+  it, and the build refuses orders listed beside it. Anything that is not an
+  insect is named by class, e.g. `["Insecta", "Arachnida"]`. The allowed names
+  are in `data/taxa.toml`; if yours is missing, add it there first. Families,
+  genera and other detail go in the card's Contents section.
 - **`background` can list both values.** A dataset mixing trap images and field
   photographs writes `background = ["simple", "complex"]`.
 - **`composition` is `aggregated`** if the dataset was assembled from several

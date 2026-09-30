@@ -14,6 +14,15 @@
   {{- $name := .name -}}
   {{- $kind := .type -}}
   {{- $values := .values -}}
+  {{- /* values_from names a vocabulary kept in its own data file, for a field
+         whose names the site needs to know more about than membership. */ -}}
+  {{- with .values_from -}}
+    {{- if eq . "taxa" -}}
+      {{- $values = (partial "taxa.html" $params).all -}}
+    {{- else -}}
+      {{- errorf "data/schema.toml: field %q has values_from = %q, which is not a known vocabulary. Known: taxa" $name . -}}
+    {{- end -}}
+  {{- end -}}
   {{- $help := .help -}}
   {{- $value := index $params $name -}}
 
@@ -73,6 +82,25 @@
         {{- errorf "%s: %q is %q, which is not one of: %s" $where $name $value (delimit $values ", ") -}}
       {{- end -}}
     {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* "Insecta" already stands for every insect order, so listing orders beside
+       it says the same thing twice and hides which one the author meant. */ -}}
+{{- $scopeGiven := index $params "taxonomic_scope" -}}
+{{- if reflect.IsSlice $scopeGiven -}}
+  {{- $taxa := partial "taxa.html" $params -}}
+  {{- if in $scopeGiven $taxa.insecta -}}
+    {{- $alsoOrders := slice -}}
+    {{- range $scopeGiven }}{{ if in $taxa.orders . }}{{ $alsoOrders = $alsoOrders | append . }}{{ end }}{{ end -}}
+    {{- with $alsoOrders -}}
+      {{- errorf "%s: taxonomic_scope lists %q together with %s. %q already covers every insect order: keep only %q, or drop it and list the orders." $where $taxa.insecta (delimit . ", ") $taxa.insecta $taxa.insecta -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $seen := slice -}}
+  {{- range $scopeGiven -}}
+    {{- if in $seen . }}{{ errorf "%s: taxonomic_scope lists %q twice." $where . }}{{ end -}}
+    {{- $seen = $seen | append . -}}
   {{- end -}}
 {{- end -}}
 
