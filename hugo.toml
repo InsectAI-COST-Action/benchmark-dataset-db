@@ -4,7 +4,7 @@
 #
 #  Every dataset is an ordinary page under content/datasets/, so Hugo's defaults are all this site needs.
 
-baseURL         = "https://saij19.github.io/benchmark-dataset-db/"
+baseURL         = "https://insectai-cost-action.github.io/benchmark-dataset-db/"
 locale          = "en-us"
 title           = "InsectAI Benchmark Datasets"
 enableRobotsTXT = true
@@ -21,7 +21,7 @@ ignoreFiles = [
 
 [params]
   description = "A registry of insect image datasets for benchmarking detection, classification and segmentation models."
-  repoURL     = "https://github.com/saij19/benchmark-dataset-db"
+  repoURL     = "https://github.com/InsectAI-COST-Action/benchmark-dataset-db"
   license     = "CC-BY-4.0"
   licenseURL  = "https://creativecommons.org/licenses/by/4.0/"
 
