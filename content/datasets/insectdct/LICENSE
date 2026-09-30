@@ -1,0 +1,16 @@
+SPDX-License-Identifier: CC-BY-4.0
+
+The InsectDCT datasets are distributed under the Creative Commons Attribution
+4.0 International license.
+
+Upstream record:
+  https://doi.org/10.5281/zenodo.21154490
+
+Canonical license text:
+  https://creativecommons.org/licenses/by/4.0/legalcode
+
+Creators: Kim Bjerge, Simon Friedrich Agathon Wogram, Pau Enric Serra-Marin,
+Otari Sakhelashvili, Toke T. Høye.
+
+The classification training data include supplementary images from GBIF,
+first published under the licenses of their GBIF occurrence records.
