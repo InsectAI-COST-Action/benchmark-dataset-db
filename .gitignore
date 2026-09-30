@@ -1,0 +1,43 @@
+# Hugo
+public/
+resources/_gen/
+.hugo_build.lock
+hugo_stats.json
+
+# Downloaded tooling
+bin/hugo
+bin/hugo_extended_*
+
+# Dataset files NEVER committed
+# Data lives on Zenodo / ERDA / Hugging Face etc... and is referenced by URL from
+# the [[assets]] blocks of each dataset card.
+#
+# hugo.toml carries the same list in `ignoreFiles`; keep the two in step, or a
+# data file will be gitignored but still published into the built site.
+*.zip
+*.tar
+*.gz
+*.tgz
+*.7z
+*.rar
+*.h5
+*.hdf5
+*.parquet
+*.npy
+*.npz
+content/datasets/**/*.csv
+content/datasets/**/*.jpg
+content/datasets/**/*.jpeg
+content/datasets/**/*.png
+content/datasets/**/*.tif
+content/datasets/**/*.tiff
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Claude and other LLMs
+CLAUDE.md

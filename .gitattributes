@@ -1,0 +1,30 @@
+# Force LF on every hand-authored text file.
+#
+# Contributors edit from Windows, macOS and Linux. Without a pinned eol, Git's
+# autocrlf rewrites line endings on checkout, so a one-line edit arrives as a
+# diff touching every line, and a file nobody edited reports as modified.
+# Pinning eol here removes that whole class of false report.
+
+*.toml text eol=lf
+*.md   text eol=lf
+*.yml  text eol=lf
+*.sh   text eol=lf
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+
+# Binary artefacts must never be line-ending-translated.
+*.zip      binary
+*.tar      binary
+*.gz       binary
+*.tgz      binary
+*.7z       binary
+*.h5       binary
+*.parquet  binary
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.tif      binary
+*.tiff     binary
+*.gif      binary
+*.pdf      binary
