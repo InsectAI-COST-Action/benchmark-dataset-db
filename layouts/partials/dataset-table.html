@@ -31,7 +31,6 @@
           data-context="{{ if $p.has_contextual_data }}included{{ else }}images-only{{ end }}"
           data-composition="{{ $p.composition }}"
           data-year="{{ $p.year }}"
-          data-license="{{ $p.license }}"
           data-search="{{ lower $haystack }}">
         <th scope="row">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
