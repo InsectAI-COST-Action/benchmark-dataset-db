@@ -18,3 +18,7 @@ catalogues insect models the same way.
   the source publications and have not been recounted.
 - **Everything is `link_only`.** No data is mirrored. Some links may break and
   the registry does not guarantee that the data will remain available.
+
+## Contributors
+
+{{< contributors >}}
