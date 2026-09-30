@@ -1,0 +1,70 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+#  The taxonomic vocabulary for a dataset card's `taxonomic_scope`.
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+#  A card's `taxonomic_scope` is a list drawn from these names, and the build
+#  stops on any name that is not here. The site shows them in the order below,
+#  whatever order the card lists them in.
+#
+#  How to write a scope:
+#
+#    - Insects are listed by ORDER: ["Coleoptera", "Lepidoptera"].
+#    - "Insecta" is shorthand for all insect orders. Use it when a dataset covers
+#      insects broadly, or when its orders are not known. It matches a filter on
+#      any insect order, so it must not be listed alongside individual orders.
+#    - Anything that is not an insect is listed by CLASS: ["Arachnida"].
+#
+#  Adding a name: add it to `orders` or `classes` below. It gets a checkbox in
+#  the Taxa filter as soon as a published dataset uses it. A name added to
+#  `orders` is also matched by every dataset that lists "Insecta".
+
+# The shorthand for every insect order.
+insecta = "Insecta"
+
+# Extant insect orders, in the usual phylogenetic sequence. Termites are within
+# Blattodea, and lice and barklice are Psocodea.
+orders = [
+  "Archaeognatha",
+  "Zygentoma",
+  "Ephemeroptera",
+  "Odonata",
+  "Plecoptera",
+  "Dermaptera",
+  "Orthoptera",
+  "Phasmatodea",
+  "Embioptera",
+  "Grylloblattodea",
+  "Mantophasmatodea",
+  "Zoraptera",
+  "Mantodea",
+  "Blattodea",
+  "Psocodea",
+  "Thysanoptera",
+  "Hemiptera",
+  "Hymenoptera",
+  "Raphidioptera",
+  "Megaloptera",
+  "Neuroptera",
+  "Coleoptera",
+  "Strepsiptera",
+  "Diptera",
+  "Mecoptera",
+  "Siphonaptera",
+  "Trichoptera",
+  "Lepidoptera",
+]
+
+# Classes outside Insecta, for datasets that include other arthropods.
+classes = [
+  "Collembola",
+  "Protura",
+  "Diplura",
+  "Arachnida",
+  "Chilopoda",
+  "Diplopoda",
+  "Pauropoda",
+  "Symphyla",
+  "Malacostraca",
+  "Branchiopoda",
+  "Ostracoda",
+]
