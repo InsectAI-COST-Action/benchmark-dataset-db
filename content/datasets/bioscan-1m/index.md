@@ -7,7 +7,10 @@ description        = "About 1.1 million microscope images of single insect speci
 task               = ["Classification"]
 taxonomic_rank     = "order"
 class_count        = 16
-taxonomic_scope    = "Insecta; every image to order, 98.6% to family (491), 22.5% to genus (3,441), 7.5% to species (8,355). Long-tailed, Diptera-dominated"
+taxonomic_scope    = ["Archaeognatha", "Ephemeroptera", "Plecoptera", "Dermaptera", "Orthoptera",
+                      "Embioptera", "Blattodea", "Psocodea", "Thysanoptera", "Hemiptera",
+                      "Hymenoptera", "Neuroptera", "Coleoptera", "Diptera", "Trichoptera",
+                      "Lepidoptera"]
 background         = ["simple"]
 geographic_scope   = "3 countries: Costa Rica, Canada, South Africa (mostly Costa Rica)"
 composition        = "self-contained"
