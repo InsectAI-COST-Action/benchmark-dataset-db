@@ -7,7 +7,7 @@
   <dl class="meta-list">
     <dt>Tasks</dt><dd class="no-cap">{{ delimit $p.task ", " }}</dd>
     <dt>Classes</dt><dd class="no-cap">{{ partial "classes.html" $page }}</dd>
-    <dt>Taxonomic scope</dt><dd class="no-cap">{{ $p.taxonomic_scope }}</dd>
+    <dt>Taxonomic scope</dt><dd class="no-cap">{{ (partial "scope.html" $page).label }}</dd>
     <dt>Background</dt><dd>{{ delimit $p.background ", " }}</dd>
     <dt>Geographic scope</dt><dd class="no-cap">{{ $p.geographic_scope }}</dd>
     <dt>Composition</dt><dd>{{ $p.composition }}</dd>

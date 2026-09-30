@@ -7,7 +7,7 @@ description        = "6,028 images of terrestrial arthropods on flat surfaces, c
 task               = ["Detection", "Segmentation"]
 taxonomic_rank     = "generic"
 class_count        = 1
-taxonomic_scope    = "Terrestrial arthropods, single generic class (no taxonomic labels)"
+taxonomic_scope    = ["Insecta", "Arachnida"]
 background         = ["simple"]
 geographic_scope   = "Multi-region; depends on each source dataset"
 composition        = "aggregated"
@@ -58,6 +58,9 @@ crowded scenes. It does not identify taxa: every instance is one class.
 - **Images:** 6,028
 - **Annotations:** instance polygons in COCO format, one `.json` per source dataset
 - **Classes:** one generic class, arthropod; no taxonomic labels
+- **Taxa in the images:** insects of many orders, and arachnids (ArTaxOr, for
+  one, includes spiders). The catalogue lists the scope as Insecta and
+  Arachnida; other arthropod classes may be present in some source datasets
 - **Tasks:** detection and instance segmentation
 
 ## Sources

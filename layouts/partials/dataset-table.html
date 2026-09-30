@@ -21,9 +21,12 @@
     {{- range $rows }}
       {{- $p := .Params -}}
       {{- $classes := partial "classes.html" . -}}
-      {{- $haystack := printf "%s %s %s %s %s %s %s %s" .Title (.Description | default "") $classes ($p.taxonomic_scope | default "") ($p.geographic_scope | default "") (delimit ($p.task | default slice) " ") (delimit ($p.contextual_data | default slice) " ") ($p.developer | default "") -}}
+      {{- $scope := partial "scope.html" . -}}
+      {{- /* The expanded names, so searching "Odonata" also finds Insecta datasets. */ -}}
+      {{- $haystack := printf "%s %s %s %s %s %s %s %s" .Title (.Description | default "") $classes (delimit $scope.match " ") ($p.geographic_scope | default "") (delimit ($p.task | default slice) " ") (delimit ($p.contextual_data | default slice) " ") ($p.developer | default "") -}}
       <tr data-id="{{ path.Base .File.Dir }}"
           data-task="{{ delimit ($p.task | default slice) ";" }}"
+          data-taxa="{{ delimit $scope.match ";" }}"
           data-background="{{ delimit ($p.background | default slice) ";" }}"
           data-context="{{ if $p.has_contextual_data }}included{{ else }}images-only{{ end }}"
           data-composition="{{ $p.composition }}"
@@ -41,7 +44,7 @@
             <span class="muted">—</span>
           {{- end -}}
         </td>
-        <td><strong>{{ $classes }}</strong><br><span class="muted">{{ $p.taxonomic_scope }}</span></td>
+        <td><strong>{{ $classes }}</strong><br><span class="muted">{{ $scope.label }}</span></td>
         <td>
           {{- range $i, $bg := $p.background -}}
             {{- if $i }}<span class="sep">,</span> {{ end -}}

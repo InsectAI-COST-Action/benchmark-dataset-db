@@ -1,0 +1,20 @@
+{{- /*
+  The taxonomic vocabulary from data/taxa.toml, in display order:
+  Insecta, then the insect orders, then the other classes.
+
+  Returns a dict:
+    insecta  "Insecta", the shorthand for every insect order
+    orders   the insect orders
+    classes  the classes outside Insecta
+    all      every name a card may use, in display order
+
+  Called as:  {{ $taxa := partial "taxa.html" . }}   (the argument is ignored)
+*/ -}}
+{{- $data := hugo.Data.taxa -}}
+{{- $insecta := $data.insecta -}}
+{{- $orders := $data.orders | default slice -}}
+{{- $classes := $data.classes | default slice -}}
+{{- $all := slice $insecta -}}
+{{- range $orders }}{{ $all = $all | append . }}{{ end -}}
+{{- range $classes }}{{ $all = $all | append . }}{{ end -}}
+{{- return dict "insecta" $insecta "orders" $orders "classes" $classes "all" $all -}}
