@@ -94,7 +94,7 @@ commercial_use     = "unknown"                   # allowed | prohibited | permis
 [[assets]]
 key      = "images"               # the label shown in the sidebar
 provider = "zenodo"               # zenodo | huggingface | github | erda | kaggle | roboflow | figshare |
-                                  # dryad | gbif | url | google-drive | dropbox
+                                  # dryad | gbif | biostudies | url | google-drive | dropbox
 url      = "https://..."
 # Optional, and worth adding when you know them:
 # filename   = "images.zip"

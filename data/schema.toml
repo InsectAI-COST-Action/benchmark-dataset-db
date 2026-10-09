@@ -197,7 +197,7 @@ help        = "The commit hash of that repo, as curated. The site links to BOTH 
 name        = "assets"
 type        = "list"
 required    = true
-providers   = ["zenodo", "huggingface", "github", "erda", "kaggle", "roboflow", "figshare", "dryad", "gbif", "url", "google-drive", "dropbox"]
+providers   = ["zenodo", "huggingface", "github", "erda", "kaggle", "roboflow", "figshare", "dryad", "gbif", "biostudies", "url", "google-drive", "dropbox"]
 help        = """
 Where to download the dataset. One [[assets]] block per file; the FIRST is the one
 the table links to, and its provider is shown as the dataset's host. Each block
