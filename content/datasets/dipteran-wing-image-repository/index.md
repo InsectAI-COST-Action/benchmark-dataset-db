@@ -1,10 +1,10 @@
 +++
 # ── Identity ────────────────────────────────────────────────────────
 title              = "Dipteran Wing Image Repository"
-description        = "24,852 images of slide-mounted mosquito and tsetse fly wings in 73 taxa, with rich specimen metadata and wing-vein masks for 741 of them."
+description        = "24,852 images of slide-mounted mosquito and tsetse fly wings in 73 taxa, with rich per-image specimen metadata."
 
 # ── Catalogue ───────────────────────────────────────────────────────
-task               = ["Classification", "Segmentation"]
+task               = ["Classification"]
 taxonomic_rank     = "mixed"
 class_count        = 73
 taxonomic_scope    = ["Diptera"]
@@ -50,22 +50,16 @@ filename     = "00_metadata_v2.csv"
 size_bytes   = 18933017
 url          = "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/478/S-BIAD1478/Files/MosquitoWingImages_v2/Files/metadata/00_metadata_v2.csv"
 note         = "One row per image: the labels and all contextual data. Also published as .xlsx, and as an older v1."
-
-[[assets]]
-key          = "segmentation-masks"
-provider     = "biostudies"
-url          = "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/478/S-BIAD1478/Files/MosquitoWingImages_v2/Files/annotations/segmentation_labels/"
-note         = "741 PNG masks of the wing veins and outline, named like the image they belong to."
 +++
 
-> 24,852 images of slide-mounted mosquito and tsetse fly wings in 73 taxa, with rich specimen metadata and wing-vein masks for 741 of them.
+> 24,852 images of slide-mounted mosquito and tsetse fly wings in 73 taxa, with rich per-image specimen metadata.
 
 **Intended use.** Benchmarking species identification of disease vectors from
 wing images, and automated wing geometric morphometrics. It was assembled to
 support vector surveillance: identifying mosquitoes by their wings, where
 morphology alone is slow and needs specialists. Every image is a single
-dissected wing on a microscope slide, so it is a classification and
-segmentation dataset, not a detection one.
+dissected wing on a microscope slide, so it is a classification dataset, not
+a detection one.
 
 ## Contents
 
@@ -83,9 +77,10 @@ segmentation dataset, not a detection one.
 - **Balance:** very uneven. *Cx. pipiens* s.l./*torrentium* alone has 8,318
   images, *Aedes aegypti* 3,807 and *Ae. japonicus* 1,779; 26 taxa have fewer
   than 20 images, several only one.
-- **Segmentation masks:** 741 images (*Aedes*, *Culex*, *Anopheles*,
-  *Coquillettidia*, *Culiseta*) have a 640 × 320 greyscale PNG tracing the wing
-  veins and outline. Edges are anti-aliased, so threshold before use.
+- **No segmentation ground truth.** The study has a folder of 741 PNG
+  wing-vein masks (`annotations/segmentation_labels/`), but the maintainers
+  say their segmentation ground truth is not stored in the repository, so this
+  entry does not list segmentation as a task.
 - **Landmarks:** the metadata flags 5,691 images as landmark-labelled, but no
   landmark coordinates are in the published files (checked 2026-10-09).
 
